@@ -3,6 +3,14 @@ class Person:
         self._name = name
         self._cpf = cpf
 
+    @property
+    def name(self):
+        return self._name
+
+    @property
+    def cpf(self):
+        return self._cpf
+
 
 class Reader(Person):
     def __init__(self, name, cpf):
@@ -17,13 +25,8 @@ class Reader(Person):
         else:
             return False
 
-    def get_name(self):
-        return super()._name
-
-    def get_cpf(self):
-        return super()._cpf
-
-    def get_pendency(self):
+    @property
+    def pendency(self):
         return self.__pendency
 
 
@@ -32,14 +35,10 @@ class Employee(Person):
         super().__init__(name, cpf)
         self.__role = role
 
-    def set_role(self, role):
-        self.__role = role
-
-    def get_name(self):
-        return super()._name
-
-    def get_cpf(self):
-        return super()._cpf
-
-    def get_role(self):
+    @property
+    def role(self):
         return self.__role
+
+    @role.setter
+    def role(self, role):
+        self.__role = role

@@ -1,5 +1,3 @@
-from ..database.books import list_books
-
 class Book:
     def __init__(self, title, isbn, author, edition, publishing_company, year, topic):
         self._title = title

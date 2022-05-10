@@ -1,5 +1,3 @@
-from ..database.users import list_users
-
 class Person:
     def __init__(self, name, cpf):
         self._name = name

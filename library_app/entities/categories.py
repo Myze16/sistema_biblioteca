@@ -1,3 +1,5 @@
+from ..database.categories import list_categories
+
 class Topic:
     def __init__(self, name, descripion, subject):
         self._name = name

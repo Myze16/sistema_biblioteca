@@ -7,6 +7,7 @@ class Book:
         self._publishing_company = publishing_company
         self._year = year
         self._topic = topic
+        self._books = []
         self._examplary = {}
 
     @property
@@ -64,6 +65,17 @@ class Book:
     @topic.setter
     def topic(self, topic):
         self._topic = topic
+
+    @classmethod
+    def get_info(self):
+        title = input("Title: ")
+        isbn = input("Isbn: ")
+        author = input("Author: ")
+        edition = input("Edition: ")
+        publi = input("Publishing company: ")
+        year = input("Year: ")
+        topic = input("Topic: ")
+        return Book(title, isbn, author, edition, publi, year, topic)
 
     
 class Examplary(Book):

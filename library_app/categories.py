@@ -27,3 +27,10 @@ class Topic:
     @subject.setter
     def subject(self, subject):
         self._subject = subject
+
+    @classmethod
+    def get_info(self):
+        name = input("Name: ")
+        descripion = input("Descripion: ")
+        subject = input("Subject: ")
+        return Topic(name, descripion, subject)

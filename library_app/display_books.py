@@ -1,4 +1,6 @@
-register_book_topic = print('''
+class BookDisplay:
+    def register_book_topic():
+        option = input('''
  ________________________________
 |                                |
 |         REGISTER BOOK          |
@@ -9,8 +11,19 @@ register_book_topic = print('''
 |  3- Register Topic     |____|| |
 |________________________________|
 ''')
+        match option:
+            case "1":
+                pass
+            case "2":
+                pass
+            case "3":
+                pass
+            case _:
+                print("Please enter a valid option")
 
-consult_book = print('''
+
+    def consult_book():
+        option = print('''
  ____________________________
 |                            |
 |       CONUSLT BOOK         |
@@ -20,3 +33,12 @@ consult_book = print('''
 |   2- Search by Author      |
 |____________________________|
 ''')
+        match option:
+            case "1":
+                pass
+            case "2":
+                pass
+            case "3":
+                pass
+            case _:
+                print("Please enter a valid option")

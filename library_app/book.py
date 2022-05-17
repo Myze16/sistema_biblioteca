@@ -1,3 +1,5 @@
+from database import book_dict
+
 class Book:
     def __init__(self, title, isbn, author, edition, publishing_company, year, topic):
         self._title = title
@@ -7,8 +9,8 @@ class Book:
         self._publishing_company = publishing_company
         self._year = year
         self._topic = topic
-        self._books = []
         self._examplary = {}
+        book_dict[self._title] = title
 
     @property
     def title(self):
@@ -16,8 +18,13 @@ class Book:
 
     @title.setter
     def title(self, title):
-        self._title = title
-    
+        if title in book_dict:
+            return False
+        else:
+            book_dict[title] = book_dict[self._title]
+            del book_dict[self._title]
+            self._title = title
+
     @property
     def isbn(self):
         return self._isbn
@@ -25,6 +32,7 @@ class Book:
     @isbn.setter 
     def isbn(self, isbn):
         self._isbn = isbn
+        #book_dict[self._title]['isbn'] = isbn
 
     @property
     def author(self):
@@ -79,14 +87,21 @@ class Book:
 
     
 class Examplary(Book):
-    def __init__(self, title, isbn, author, edition, publishing_company, year, topic, id, availability):
+    def __init__(self, title, isbn, author, edition, publishing_company, year, topic, availability):
         super().__init__(title, isbn, author, edition, publishing_company, year, topic)
-        self._id = id
+        self._id = None
         self._availability = availability
 
     @property
     def id(self):
         return self._id
+
+    @id.setter
+    def id(self):
+        if book_dict:
+            for i in book_dict:
+                if i['id'] > self._id:
+                    self._id = i['id'] + 1
 
     @property
     def availability(self):

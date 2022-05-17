@@ -3,13 +3,13 @@ from categories import Topic
 
 def main():
     while True:
-        print("""
-1 - Register a book
-2 - Register a examplary
-3 - Register a topic
-4 - Return""")
-        option = input("Enter the desired option: ")
+        option = input("""
+    1 - Register a book
+    2 - Register a examplary
+    3 - Register a topic
+    4 - Return
 
+    Enter the desired option: """)
         match option:
             case "1":
                 book = Book.get_info()

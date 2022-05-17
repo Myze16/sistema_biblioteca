@@ -1,7 +1,7 @@
 from database import book_dict
 
 class Book:
-    def __init__(self, title, isbn, author, edition, publishing_company, year, topic):
+    def __init__(self, title, isbn, author, edition, publishing_company, year, topic, exemplary={}):
         self._title = title
         self._isbn = isbn  # validar isbn(unico)
         self._author = author
@@ -9,7 +9,7 @@ class Book:
         self._publishing_company = publishing_company
         self._year = year
         self._topic = topic
-        self._examplary = {}
+        self._examplary = exemplary
         book_dict[self._title] = title
 
     @property
@@ -73,6 +73,21 @@ class Book:
     @topic.setter
     def topic(self, topic):
         self._topic = topic
+    
+    @property
+    def examplary(self):
+        return self._examplary
+    
+    @examplary.setter
+    def examplary(self, new_examplary):
+        for exemp in self._examplary:
+            last_id = exemp.id
+        if last_id == None:
+            last_id = 0
+        new_id = last_id + 1
+        new_examplary.id = new_id
+        self._examplary[f"{new_id}"] = new_examplary
+
 
     @classmethod
     def get_info(self):
@@ -86,6 +101,8 @@ class Book:
         return Book(title, isbn, author, edition, publi, year, topic)
 
     
+
+    
 class Examplary(Book):
     def __init__(self, title, isbn, author, edition, publishing_company, year, topic, availability):
         super().__init__(title, isbn, author, edition, publishing_company, year, topic)
@@ -97,11 +114,8 @@ class Examplary(Book):
         return self._id
 
     @id.setter
-    def id(self):
-        if book_dict:
-            for i in book_dict:
-                if i['id'] > self._id:
-                    self._id = i['id'] + 1
+    def id(self, id):
+        self._id = id
 
     @property
     def availability(self):

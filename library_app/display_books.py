@@ -51,9 +51,20 @@ class BookDisplay:
     ''')
             match option:
                 case "1":
-                    pass
+                    search_book_name = input('Enter book name: ')
+                    if search_book_name not in book_dict:
+                        print("No books with that name were found!")
+                    else:
+                        book = book_dict[search_book_name]
+                        print(f"Title: {book.title} \nAuthor: {book.author} \nExamplaries: {book.examplary}")
                 case "2":
-                    pass
+                    search_book_topic = input("Enter book topic: ")
+                    books_found = []
+                    for book in book_dict:
+                        if book.topic == search_book_topic:
+                            print("-="*20)
+                            
+
                 case "3":
                     pass
                 case "4":

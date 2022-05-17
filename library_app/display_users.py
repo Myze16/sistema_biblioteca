@@ -3,9 +3,20 @@ login = print('''
 |                         ______         |
 |     LOGIN              /      \        |
 |                       |        |       |
-|   1- Sign up           \      /        | 
+|   1- Sign in           \      /        |
 |                         )    (         |
-|   2- Sign in           /      \        |
+|   2- Logout            /      \        |
 |                       /________\       |
 |________________________________________|
+''')
+
+consult_user = print('''
+ ____________________________
+|                            |
+|        CONUSLT USER        |
+|                         _  |
+|   1- Search by name    (_) |
+|   3- Search by role    /   |
+|   2- Search by CPF         |
+|____________________________|
 ''')

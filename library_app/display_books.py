@@ -1,6 +1,6 @@
 from book import Book
 from categories import Topic
-from database import book_dict
+from database import book_dict, topic_dict
 
 class BookDisplay:
     def register_book_topic(self):
@@ -28,6 +28,7 @@ class BookDisplay:
                 case "3":
                     topic = Topic.get_info()
                     print(f"Topic {topic.name} registered")
+                    topic_dict[topic.name] = topic
                 case "4":
                     self.consult_book()
                 case "5":
@@ -56,14 +57,17 @@ class BookDisplay:
                         print("No books with that name were found!")
                     else:
                         book = book_dict[search_book_name]
-                        print(f"Title: {book.title} \nAuthor: {book.author} \nExamplaries: {book.examplary}")
+                        print(f"Title: {book.title} \nAuthor: {book.author} \nExamplaries: {book.examplary} \nEdition: {book.edition} \nTopic: {book.topic} \nPublishing Company: {book.publishing_company} \nYear: {book.year}")
                 case "2":
                     search_book_topic = input("Enter book topic: ")
-                    books_found = []
+                    book_found = False
                     for book in book_dict:
                         if book.topic == search_book_topic:
+                            book_found = True
                             print("-="*20)
-                            
+                            print(f"Title: {book.title} \nAuthor: {book.author} \nExamplaries: {book.examplary} \nEdition: {book.edition} \nTopic: {book.topic} \nPublishing Company: {book.publishing_company} \nYear: {book.year}")
+                    if not book_found:
+                        print("No books with tha topic were found!")
 
                 case "3":
                     pass

@@ -6,7 +6,7 @@ from book import Book, Examplary
 
 
 def main():
-    cadastred()
+    #cadastred()
     display_book = BookDisplay()
     while True:
         display_book.register_book_topic()

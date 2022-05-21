@@ -6,17 +6,17 @@ class BookDisplay:
     def register_book_topic(self):
         while True:
             option = input('''
-     ________________________________
-    |                                |
-    |         REGISTER BOOK          |
-    |           AND TOPIC            |
-    |                         _____  |
-    |  1- Register Book      |    || |
-    |  2- Register Exemplary |Book|| |
-    |  3- Register Topic     |____|| |
-    |  4- Consult Book               |
-    |  5- Return                     |
-    |________________________________|
+     __________________________
+    |                          |
+    |      REGISTER BOOK       |
+    |        AND TOPIC         |
+    |                          |
+    |  1- Register Book        |
+    |  2- Register Exemplary   |
+    |  3- Register Topic       |
+    |  4- Consult Book         |
+    |  5- Return               |
+    |__________________________|
 
 >>> ''')
             match option:
@@ -41,15 +41,15 @@ class BookDisplay:
     def consult_book(self):
         while True:
             option = input('''
-     ____________________________
-    |                            |
-    |       CONSULT BOOK         |
-    |                         _  |
-    |   1- Search by name    (_) |
-    |   2- Search by topic   /   |
-    |   3- Search by Author      |
-    |   4- Return                |
-    |____________________________|
+     _________________________
+    |                         |
+    |      CONSULT BOOK       |
+    |                         |
+    |   1- Search by name     |
+    |   2- Search by topic    |
+    |   3- Search by Author   |
+    |   4- Return             |
+    |_________________________|
     
 >>> ''')
             match option:

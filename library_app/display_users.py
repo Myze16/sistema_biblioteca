@@ -1,15 +1,13 @@
 class UserDisplay:
     def login_user():
         option = input('''
- ________________________________________
-|                          ____          |
-|     LOGIN              /      \        |
-|                       |        |       |
-|   1- Sign in           \      /        |
-|                         )    (         |
-|   2- Exit              /      \        |
-|                       /________\       |
-|________________________________________|
+ ________________
+|                |
+|     LOGIN      |
+|                |
+|   1- Sign in   |
+|   2- Exit      |
+|________________|
 ''')
         match option:
             case "1":
@@ -22,15 +20,15 @@ class UserDisplay:
 
     def consult_user():
         option = input('''
- ____________________________
-|                            |
-|        CONUSLT USER        |
-|                         _  |
-|   1- Search by name    (_) |
-|   3- Search by role    /   |
-|   2- Search by CPF         |
-|   4- Return                |
-|____________________________|
+ ________________________
+|                        |
+|      CONUSLT USER      |
+|                        |
+|   1- Search by name    |
+|   3- Search by role    |
+|   2- Search by CPF     |
+|   4- Return            |
+|________________________|
 ''')
         match option:
             case "1":
@@ -43,3 +41,5 @@ class UserDisplay:
                 pass
             case _:
                 print("Please enter a valid option")
+
+

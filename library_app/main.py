@@ -1,9 +1,13 @@
+from categories import Topic
 from display_books import BookDisplay
-from fill_database import fill_database
+from database import book_dict
+from cadastred import cadastred
+from book import Book, Examplary
+
 
 def main():
+    cadastred()
     display_book = BookDisplay()
-    fill_database()
     while True:
         display_book.register_book_topic()
         

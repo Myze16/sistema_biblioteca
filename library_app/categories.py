@@ -1,7 +1,7 @@
 class Topic:
-    def __init__(self, name, descripion, subject):
+    def __init__(self, name, description, subject):
         self._name = name
-        self._description = descripion
+        self._description = description
         self._subject = subject
 
     @property

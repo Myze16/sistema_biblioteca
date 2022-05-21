@@ -17,7 +17,8 @@ class BookDisplay:
     |  4- Consult Book               |
     |  5- Return                     |
     |________________________________|
-    ''')
+
+>>> ''')
             match option:
                 case "1":
                     book = Book.get_info()
@@ -49,7 +50,8 @@ class BookDisplay:
     |   3- Search by Author      |
     |   4- Return                |
     |____________________________|
-    ''')
+    
+>>> ''')
             match option:
                 case "1":
                     search_book_name = input('Enter book name: ')
@@ -60,9 +62,8 @@ class BookDisplay:
                     if not book_found:
                         print("No books with that name were found!")
                     else:
-                        book = book_dict.get(search_book_name.lower())
-                        print("-="*20)
-                        print(f"Title: {book.title} \nAuthor: {book.author} \nExamplaries: {book.examplary} \nEdition: {book.edition} \nTopic: {book.topic.name} \nPublishing Company: {book.publishing_company} \nYear: {book.year}")
+                        book = book_dict[search_book_name]
+                        print(f"Title: {book.title} \nAuthor: {book.author} \nExamplaries: {book.examplary} \nTopic: {book.topic} \nYear: {book.year}")
                 case "2":
                     search_book_topic = input("Enter book topic: ")
                     book_found = False

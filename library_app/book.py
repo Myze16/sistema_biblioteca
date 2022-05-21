@@ -5,12 +5,12 @@ class Book:
         self._title = title
         self._isbn = isbn  # validar isbn(unico)
         self._author = author
-        self._edition = edition
+        self._edition = edition # Quantas vezes o livro foi publicdo
         self._publishing_company = publishing_company
         self._year = year
         self._topic = topic
-        self._examplary = exemplary
-        book_dict[self._title] = title
+        self._examplary = {}
+        book_dict[self._title] = self
 
     @property
     def title(self):

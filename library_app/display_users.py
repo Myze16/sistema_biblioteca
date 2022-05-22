@@ -1,3 +1,6 @@
+from database import user_dict
+from users import Reader, Employee
+
 class UserDisplay:
     def login_user():
         option = input('''
@@ -8,15 +11,28 @@ class UserDisplay:
 |   1- Sign in   |
 |   2- Exit      |
 |________________|
-''')
+
+>>> ''')
         match option:
             case "1":
-                pass
+                name = input("Name: ")
+                password = input("Password: ")
+                try:
+                    if name in user_dict:
+                        user = user_dict[name]
+                        if user.login(password):
+                            print(f"\nLogin successfully, welcome {name}!")
+                            return True
+                        else:
+                            print("\nInvalid password!!!")
+                    else:
+                        print("\nInvalid user!!!")
+                except:
+                    print("\nInvalid information")
             case "2":
-                pass
+                return False
             case _:
-                print("Please enter a valid option")
-
+                print("\nPlease enter a valid option")
 
     def consult_user():
         option = input('''
@@ -29,7 +45,8 @@ class UserDisplay:
 |   2- Search by CPF     |
 |   4- Return            |
 |________________________|
-''')
+
+>>> ''')
         match option:
             case "1":
                 pass
@@ -41,5 +58,3 @@ class UserDisplay:
                 pass
             case _:
                 print("Please enter a valid option")
-
-

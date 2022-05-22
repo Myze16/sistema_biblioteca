@@ -1,8 +1,14 @@
-from database import book_dict
 from categories import Topic
 from book import Book, Examplary
+from users import Employee, Reader
 
 def cadastred():
+    #Users
+    Employee("Junior", "123456", "123","Librarian")
+    Employee("Mizael", "192345", "321", "Clerk")
+    Employee("Gabriel", "928124", "abc", "Manager")
+    Reader("Ana", "193982", "334")
+
     # Topics
     Topic("Drama", "Genero melancolico", "dnfsfsf")
     Topic("Drsdfa", "Genero melancolico", "dnfsfsf")

@@ -19,6 +19,12 @@ class Person:
     def password(self):
         return self._password
 
+    def login(self, password_input):
+        if password_input == self.password:
+            return True
+        else:
+            return False
+
 
 class Reader(Person):
     def __init__(self, name, cpf, password):
@@ -37,12 +43,6 @@ class Reader(Person):
     def pendency(self):
         return self.__pendency
 
-    def login(self, password_input):
-        if password_input == super().password:
-            return True
-        else:
-            return False
-
 
 class Employee(Person):
     def __init__(self, name, cpf, password, role):
@@ -56,9 +56,3 @@ class Employee(Person):
     @role.setter
     def role(self, role):
         self.__role = role
-
-    def login(self, password_input):
-        if password_input == super().password:
-            return True
-        else:
-            return False

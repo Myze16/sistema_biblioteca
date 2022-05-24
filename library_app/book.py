@@ -1,4 +1,4 @@
-from database import book_dict
+from database import book_dict, topic_dict
 
 class Book:
     def __init__(self, title, isbn, author, edition, publishing_company, year, topic, exemplary={}):
@@ -72,7 +72,11 @@ class Book:
 
     @topic.setter
     def topic(self, topic):
-        self._topic = topic
+        if topic in topic_dict:
+            self._topic = topic
+            return True
+        else:
+            return False
     
     @property
     def examplary(self):
@@ -90,7 +94,7 @@ class Book:
 
 
     @classmethod
-    def get_info(self):
+    def get_info(cls):
         title = input("Title: ")
         isbn = input("Isbn: ")
         author = input("Author: ")
@@ -99,8 +103,6 @@ class Book:
         year = input("Year: ")
         topic = input("Topic: ")
         return Book(title, isbn, author, edition, publi, year, topic)
-
-    
 
     
 class Examplary(Book):

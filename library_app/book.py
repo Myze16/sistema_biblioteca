@@ -29,10 +29,13 @@ class Book:
     def isbn(self):
         return self._isbn
 
-    @isbn.setter 
+    @isbn.setter
     def isbn(self, isbn):
-        self._isbn = isbn
-        #book_dict[self._title]['isbn'] = isbn
+        if vars(self)['isbn'] == isbn:
+            return False
+        else:
+            return True
+        
 
     @property
     def author(self):

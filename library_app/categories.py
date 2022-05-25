@@ -1,8 +1,11 @@
+from database import topic_dict
+
 class Topic:
     def __init__(self, name, description, subject):
         self._name = name
         self._description = description
         self._subject = subject
+        topic_dict[name] = self
 
     @property
     def name(self):
@@ -29,7 +32,7 @@ class Topic:
         self._subject = subject
 
     @classmethod
-    def get_info(self):
+    def set_info(cls):
         name = input("Name: ")
         descripion = input("Descripion: ")
         subject = input("Subject: ")

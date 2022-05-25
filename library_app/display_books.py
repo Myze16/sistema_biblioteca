@@ -27,15 +27,17 @@ class BookDisplay:
                 case "2":
                     pass
                 case "3":
-                    topic = Topic.get_info()
-                    print(f"Topic {topic.name} registered")
-                    topic_dict[topic.name] = topic
+                    try:
+                        topic = Topic.set_info()
+                        print(f"Topic {topic.name} registered!")
+                    except:
+                        print("Unable to register Topic!")
                 case "4":
                     self.consult_book()
                 case "5":
                     break
                 case _:
-                    print("Please enter a valid option")
+                    print("Please enter a valid option!")
 
 
     def consult_book(self):

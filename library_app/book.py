@@ -35,7 +35,6 @@ class Book:
             return False
         else:
             return True
-        
 
     @property
     def author(self):

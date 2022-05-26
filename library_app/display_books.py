@@ -1,31 +1,67 @@
-from book import Book
+from book import Book, Examplary
 from categories import Topic
 from database import book_dict, topic_dict
 
 class BookDisplay:
-    def register_book_topic(self):
+    def display_menu(self):
         while True:
             option = input('''
      __________________________
     |                          |
-    |      REGISTER BOOK       |
-    |        AND TOPIC         |
+    |           MENU           |
     |                          |
-    |  1- Register Book        |
-    |  2- Register Exemplary   |
-    |  3- Register Topic       |
-    |  4- Consult Book         |
+    |  1- Consult              |
+    |  2- Register             |
+    |  3- #Update              |
+    |  4- #Remove              |
     |  5- Return               |
     |__________________________|
 
 >>> ''')
             match option:
                 case "1":
-                    book = Book.get_info()
-                    print(f"Book {book.title} registered")
-                    book_dict[book.title] = book
+                    self.consult()
                 case "2":
+                    self.register()
+                case "3":
                     pass
+                    #self.update()
+                case "4":
+                    pass
+                    #self.remove()
+                case "5":
+                    break
+                case _:
+                    print("Please enter a valid option!")
+
+    def register(self):
+        while True:
+            option = input('''
+     __________________________
+    |                          |
+    |         REGISTER         |
+    |                          |
+    |  1- Register Book        |
+    |  2- #Register Exemplary  |
+    |  3- Register Topic       |
+    |  4- Return               |
+    |__________________________|
+
+>>> ''')
+            match option:
+                case "1":
+                    try:
+                        book = Book.get_info()
+                        print(f"Book {book.title} registered!")
+                    except:
+                        print("Unable to register Book!")
+                case "2":
+                    try:
+                        pass
+                        #exemplarey = Exemplary.set_info()
+                        #print(f"Book {exemplary.title} registered!")
+                    except:
+                        print("Unable to register Exemplary!")
                 case "3":
                     try:
                         topic = Topic.set_info()
@@ -33,8 +69,44 @@ class BookDisplay:
                     except:
                         print("Unable to register Topic!")
                 case "4":
-                    self.consult_book()
-                case "5":
+                    break
+                case _:
+                    print("Please enter a valid option!")
+
+
+    def consult(self):
+        while True:
+            option = input('''
+     _________________________
+    |                         |
+    |         CONSULT         |
+    |                         |
+    |   1- Book               |
+    |   2- Exemplary          |
+    |   3- User               |
+    |   4- Return             |
+    |_________________________|
+    
+>>> ''')
+            match option:
+                case "1":
+                    try:
+                        self.consult_book()
+                    except:
+                        print("Error!")
+                case "2":
+                    try:
+                        pass
+                        #self.consult_exemplary()
+                    except:
+                        print("Error!")
+                case "3":
+                    try:
+                        pass
+                        #self.consult_user()
+                    except:
+                        print("error!")
+                case "4":
                     break
                 case _:
                     print("Please enter a valid option!")

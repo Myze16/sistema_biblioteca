@@ -9,10 +9,10 @@ from book import Book, Examplary
 def main():
     cadastred()
     display_book = BookDisplay()
-    display_user = UserDisplay
+    display_user = UserDisplay()
     while True:
         if display_user.login_user():
-            display_book.register_book_topic()
+            display_book.display_menu()
         
 if __name__ == "__main__":
     main()

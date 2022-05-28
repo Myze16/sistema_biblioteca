@@ -1,5 +1,5 @@
 from database import user_dict
-from users import Reader, Employee
+from user import User
 
 class UserDisplay:
     def login_user():

@@ -1,13 +1,13 @@
 from categories import Topic
 from book import Book, Examplary
-from users import Employee, Reader
+from user import User
 
 def cadastred():
     #Users
-    Employee("Junior", "123456", "123","Librarian")
-    Employee("Mizael", "192345", "321", "Clerk")
-    Employee("Gabriel", "928124", "abc", "Manager")
-    Reader("Ana", "193982", "334")
+    User("Junior", "123456", "123","Librarian")
+    User("Mizael", "192345", "321", "Clerk")
+    User("Gabriel", "928124", "abc", "Manager")
+    User("Ana", "193982", "334", "Student")
 
     # Topics
     Topic("Drama", "Genero melancolico", "dnfsfsf")

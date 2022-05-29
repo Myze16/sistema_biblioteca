@@ -13,6 +13,8 @@ class Topic:
     
     @name.setter
     def name(self, name):
+        topic_dict[name] = topic_dict[self._name]
+        del topic_dict[self._name]
         self._name = name
 
     @property
@@ -34,6 +36,6 @@ class Topic:
     @classmethod
     def set_info(cls):
         name = input("Name: ")
-        descripion = input("Descripion: ")
+        description = input("Descripion: ")
         subject = input("Subject: ")
-        return Topic(name, descripion, subject)
+        return Topic(name, description, subject)

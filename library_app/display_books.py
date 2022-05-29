@@ -2,8 +2,10 @@ from book import Book, Examplary
 from categories import Topic
 from database import book_dict, topic_dict
 
+
+
 class BookDisplay:
-    def display_menu(self):
+    def display_menu_admin(self):
         while True:
             option = input('''
      __________________________
@@ -12,9 +14,10 @@ class BookDisplay:
     |                          |
     |  1- Consult              |
     |  2- Register             |
-    |  3- #Update              |
-    |  4- #Remove              |
-    |  5- Return               |
+    |  3- Update               |
+    |  4- Remove               |
+    |  5- Generate Report      |
+    |  6- Return               |
     |__________________________|
 
 >>> ''')
@@ -30,9 +33,14 @@ class BookDisplay:
                     pass
                     #self.remove()
                 case "5":
+                    pass
+                    #self.generate_report()
+                case "6":
                     break
                 case _:
                     print("Please enter a valid option!")
+
+# -------------------------------------------------------------------
 
     def register(self):
         while True:
@@ -73,6 +81,7 @@ class BookDisplay:
                 case _:
                     print("Please enter a valid option!")
 
+# -------------------------------------------------------------------
 
     def consult(self):
         while True:
@@ -111,6 +120,47 @@ class BookDisplay:
                 case _:
                     print("Please enter a valid option!")
 
+# -------------------------------------------------------------------
+
+    def update(self):
+        while True:
+            option = input('''
+     __________________________
+    |                          |
+    |         REGISTER         |
+    |                          |
+    |  1- #Update Book         |
+    |  2- #Update Exemplary    |
+    |  3- Update Topic         |
+    |  4- Return               |
+    |__________________________|
+
+>>> ''')
+            match option:
+                case "1":
+                    try:
+                        book = Book.get_info()
+                        print(f"Book {book.title} registered!")
+                    except:
+                        print("Unable to register Book!")
+                case "2":
+                    try:
+                        pass
+                        #exemplarey = Exemplary.set_info()
+                        #print(f"Book {exemplary.title} registered!")
+                    except:
+                        print("Unable to register Exemplary!")
+                case "3":
+                    try:
+                        self.topic_display.update()
+                    except:
+                        print("Unable to register Topic!")
+                case "4":
+                    break
+                case _:
+                    print("Please enter a valid option!")
+
+# -------------------------------------------------------------------
 
     def consult_book(self):
         while True:
@@ -163,3 +213,5 @@ class BookDisplay:
                     break
                 case _:
                     print("Please enter a valid option")
+
+# -------------------------------------------------------------------

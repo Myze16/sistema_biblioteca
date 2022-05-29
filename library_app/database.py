@@ -1,3 +1,11 @@
+role_list = [
+    "STUDENT",
+    "TEACHER",
+    "EMPLOYEE",
+    "LIBRARIAN",
+    "ADMIN"
+]
+
 user_dict = {
     
 }

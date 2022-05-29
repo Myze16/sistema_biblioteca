@@ -1,4 +1,4 @@
-from database import user_dict
+from database import role_list, user_dict
 
 class User:
     def __init__(self, name, cpf, password, role):
@@ -15,7 +15,10 @@ class User:
 
     @name.setter
     def name(self, name):
-        self._name = name
+        if name in user_dict:
+            raise Exception
+        else:
+            self._name = name
 
     @property
     def cpf(self):
@@ -23,7 +26,11 @@ class User:
 
     @cpf.setter
     def cpf(self, cpf):
-        self._cpf = cpf
+        for i in user_dict:
+            if i[1]["cpf"] == cpf or len(cpf) != 11:
+                raise Exception
+            else:
+                self._cpf = cpf
 
     @property
     def password(self):
@@ -39,22 +46,47 @@ class User:
 
     @role.setter
     def role(self, role):
-        self._role = role
+        if role.upper() in role_list:
+            self._role = role.upper()
+        else:
+            raise Exception
 
     @property
     def pendency(self):
         return self._pendency
 
-    def set_pendency(self, book):
-        book = book.upper()
-        if book not in self._pendency:
-            self._pendency.append(book)
-            return True
+    @pendency.setter
+    def pendency(self, book):
+        if self._role == "STUDENT" or "EMPLOYEE":
+            if self._pendency < 3:
+                book = book.upper()
+                if book not in self._pendency:
+                    self._pendency.append(book)
+                    return True
+                else:
+                    return False
+        elif self._role == "TEACHER":
+            if self._pendency < 5:
+                book = book.upper()
+                if book not in self._pendency:
+                    self._pendency.append(book)
+                    return True
+                else:
+                    return False
         else:
-            return False
+            self._pendency.append(book)
 
     def login(self, password_input):
         if password_input == self.password:
             return True
         else:
             return False
+
+    # @classmethod
+    # def set_user(cls, name, cpf, password, role):
+    #     user = User()
+    #     user.name = name
+    #     user.cpf = cpf
+    #     user.password = password
+    #     user.role = role
+    #     user_dict[user.name] = user

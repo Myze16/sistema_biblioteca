@@ -22,7 +22,7 @@ class UserDisplay:
                         user = user_dict[name]
                         if user.login(password):
                             print(f"\nLogin successfully, welcome {name}!")
-                            return True
+                            return user
                         else:
                             print("\nInvalid password!!!")
                     else:
@@ -30,7 +30,8 @@ class UserDisplay:
                 except:
                     print("\nInvalid information")
             case "2":
-                return False
+                print("\nGoing out...")
+                exit()
             case _:
                 print("\nPlease enter a valid option")
 

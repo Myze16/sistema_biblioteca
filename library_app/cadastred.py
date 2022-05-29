@@ -4,16 +4,12 @@ from user import User
 
 def cadastred():
     #Users
-    User("Junior", "123456", "123","Librarian")
-    User("Mizael", "192345", "321", "Clerk")
-    User("Gabriel", "928124", "abc", "Manager")
-    User("Ana", "193982", "334", "Student")
+    User("adm", "12345678901", "123", "ADMIN")
 
     # Topics
     Topic("Drama", "Genero melancolico", "dnfsfsf")
     Topic("Drsdfa", "Genero melancolico", "dnfsfsf")
     Topic("rrsdfa", "Genero melancolico", "dnfsfsf")
-
 
     # Books
     Book("Borboleta", 1238172, "Douglas Natalino", "Jardim colorido", "Intriseca", 2022, "Drama")

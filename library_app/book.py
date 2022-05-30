@@ -94,18 +94,6 @@ class Book:
         new_examplary.id = new_id
         self._examplary[f"{new_id}"] = new_examplary
 
-
-    @classmethod
-    def get_info(cls):
-        title = input("Title: ")
-        isbn = input("Isbn: ")
-        author = input("Author: ")
-        edition = input("Edition: ")
-        publi = input("Publishing company: ")
-        year = input("Year: ")
-        topic = input("Topic: ")
-        return Book(title, isbn, author, edition, publi, year, topic)
-
     
 class Examplary(Book):
     def __init__(self, title, isbn, author, edition, publishing_company, year, topic, availability):

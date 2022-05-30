@@ -142,7 +142,7 @@ def update():
 >>> ''')
         match option:
             case "1":
-                pass
+                update_book()
             case "2":
                 try:
                     pass

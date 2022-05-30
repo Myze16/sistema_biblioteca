@@ -113,7 +113,10 @@ def register():
                     print("Unable to register Exemplary!")
             case "3":
                 try:
-                    topic = Topic.set_info()
+                    name = input("Name: ")
+                    description = input("Descripion: ")
+                    subject = input("Subject: ")
+                    topic = Topic(name, description, subject)
                     print(f"Topic {topic.name} registered!")
                 except:
                     print("Unable to register Topic!")

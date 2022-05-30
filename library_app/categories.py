@@ -32,10 +32,3 @@ class Topic:
     @subject.setter
     def subject(self, subject):
         self._subject = subject
-
-    @classmethod
-    def set_info(cls):
-        name = input("Name: ")
-        description = input("Descripion: ")
-        subject = input("Subject: ")
-        return Topic(name, description, subject)

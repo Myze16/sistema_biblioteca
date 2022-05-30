@@ -1,4 +1,4 @@
-from database import book_dict, topic_dict
+from database import book_dict, exemplary_dict, topic_dict
 
 class Book:
     def __init__(self, title, isbn, author, edition, publishing_company, year, topic, exemplary={}):
@@ -9,7 +9,7 @@ class Book:
         self._publishing_company = publishing_company
         self._year = year
         self._topic = topic
-        self._examplary = {}
+        self._exemplary = {}
         book_dict[self._title] = self
 
     @property
@@ -81,19 +81,12 @@ class Book:
             return False
     
     @property
-    def examplary(self):
-        return self._examplary
+    def exemplary(self):
+        return self._exemplary
     
-    @examplary.setter
-    def examplary(self, new_examplary):
-        for exemp in self._examplary:
-            last_id = exemp.id
-        if last_id == None:
-            last_id = 0
-        new_id = last_id + 1
-        new_examplary.id = new_id
-        self._examplary[f"{new_id}"] = new_examplary
-
+    @exemplary.setter
+    def exemplary(self, exemplary):
+        self._exemplary[exemplary.id] = exemplary
 
     @classmethod
     def get_info(cls):
@@ -107,11 +100,13 @@ class Book:
         return Book(title, isbn, author, edition, publi, year, topic)
 
     
-class Examplary(Book):
-    def __init__(self, title, isbn, author, edition, publishing_company, year, topic, availability):
+class Exemplary(Book):
+    def __init__(self, title, isbn, author, edition, publishing_company, year, topic):
         super().__init__(title, isbn, author, edition, publishing_company, year, topic)
         self._id = None
-        self._availability = availability
+        self._availability = None
+        exemplary_dict[self._id] = self
+        super().exemplary[self._id] = self
 
     @property
     def id(self):

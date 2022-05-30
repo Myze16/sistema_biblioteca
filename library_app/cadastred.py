@@ -1,10 +1,10 @@
 from categories import Topic
-from book import Book, Examplary
+from book import Book, Exemplary
 from user import User
 
 def cadastred():
     #Users
-    User("adm", "12345678901", "123", "ADMIN")
+    User("adm", "12678787890", "123", "ADMIN")
 
     # Topics
     Topic("Drama", "Genero melancolico", "dnfsfsf")
@@ -16,6 +16,7 @@ def cadastred():
     Book("Xarara", 1238332, "Junior Nascmento", "Jardim Escuro", "Intriseca", 2022, "Drama")
     Book("Mariposa", 1238174, "Douglas Renato", "Jardineiro", "Intriseca", 2022, "Drama")
 
-
     # Exemplary
-    # Examplary("")
+    Exemplary("Borbole21a", 1238172, "Douglas Natalino", "Jardim colorido", "Intriseca", 2022, "Drama")
+    Exemplary("B212313boleta", 1238172, "Douglas Natalino", "Jardim colorido", "Intriseca", 2022, "Drama")
+    Exemplary("gagagagaeta", 1238172, "Douglas Natalino", "Jardim colorido", "Intriseca", 2022, "Drama")

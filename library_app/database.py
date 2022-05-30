@@ -17,3 +17,7 @@ topic_dict = {
 book_dict = {
 
 }
+
+exemplary_dict = {
+    
+}

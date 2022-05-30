@@ -1,4 +1,4 @@
-from display_users import UserDisplay
+from display_user import UserDisplay
 from cadastred import cadastred
 from display_menu import *
 

@@ -1,5 +1,5 @@
 from book import Book, Exemplary
-from categories import Topic
+from topic import Topic
 from database import book_dict, topic_dict
 
 

@@ -1,6 +1,6 @@
 from book import Book, Examplary
-from categories import Topic
-from display_books import *
+from topic import Topic
+from display_book import *
 from display_topic import *
 
 
@@ -113,7 +113,10 @@ def register():
                     print("Unable to register Exemplary!")
             case "3":
                 try:
-                    topic = Topic.set_info()
+                    name = input("Name: ")
+                    description = input("Descripion: ")
+                    subject = input("Subject: ")
+                    topic = Topic(name, description, subject)
                     print(f"Topic {topic.name} registered!")
                 except:
                     print("Unable to register Topic!")

@@ -1,4 +1,4 @@
-from categories import Topic
+from topic import Topic
 from book import Book, Exemplary
 from user import User
 

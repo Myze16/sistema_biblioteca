@@ -85,19 +85,14 @@ class Book:
         return self._exemplary
     
     @exemplary.setter
-    def exemplary(self, exemplary):
-        self._exemplary[exemplary.id] = exemplary
-
-    @classmethod
-    def get_info(cls):
-        title = input("Title: ")
-        isbn = input("Isbn: ")
-        author = input("Author: ")
-        edition = input("Edition: ")
-        publi = input("Publishing company: ")
-        year = input("Year: ")
-        topic = input("Topic: ")
-        return Book(title, isbn, author, edition, publi, year, topic)
+    def exemplary(self, new_exemplary):
+        for exemp in self._exemplary:
+            last_id = exemp.id
+        if last_id == None:
+            last_id = 0
+        new_id = last_id + 1
+        new_exemplary.id = new_id
+        self._exemplary[f"{new_id}"] = new_exemplary
 
     
 class Exemplary(Book):

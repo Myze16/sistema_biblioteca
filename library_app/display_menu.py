@@ -1,7 +1,9 @@
 from book import Book, Examplary
+from user import User
 from topic import Topic
 from display_book import *
 from display_topic import *
+from database import role_list
 
 
 def display_menu_admin():
@@ -121,7 +123,18 @@ def register():
                 except:
                     print("Unable to register Topic!")
             case "4":
-                pass
+                try:
+                    name = input("Name: ")
+                    cpf = input("Cpf: ")
+                    password = input("Password: ")
+                    print("----Roles----")
+                    for i, role in enumerate(role_list):
+                        print(role)
+                    role = input("Enter the role: ")
+                    user = User(name, cpf, password, role)
+                    print(f"User {user.name} registered!")
+                except:
+                    print("Unable to register User!")
             case "5":
                 break
             case _:

@@ -1,6 +1,5 @@
-from matplotlib.pyplot import title
 from book import Book, Examplary
-from categories import Topic
+from topic import Topic
 from database import book_dict, topic_dict
 
 

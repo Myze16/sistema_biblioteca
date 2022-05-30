@@ -1,6 +1,6 @@
 from book import Book, Examplary
-from categories import Topic
-from display_books import *
+from topic import Topic
+from display_book import *
 from display_topic import *
 
 

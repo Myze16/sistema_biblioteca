@@ -49,8 +49,9 @@ def consult():
 |                         |
 |   1- Book               |
 |   2- Exemplary          |
-|   3- User               |
-|   4- Return             |
+|   3- Topic              |
+|   4- User               | 
+|   5- Return             |
 |_________________________|
 
 >>> ''')
@@ -66,12 +67,18 @@ def consult():
                     #consult_exemplary()
                 except:
                     print("Error!")
+                
             case "3":
+                try:
+                    consult_topic()
+                except:
+                    print("Error!")
+            case "4":
                 try:
                     consult_user()
                 except:
-                    print("error!")
-            case "4":
+                    print("Error!")
+            case "5":
                 break
             case _:
                 print("Please enter a valid option!")

@@ -122,3 +122,44 @@ def consult_book():
                 break
             case _:
                 print("Please enter a valid option")
+
+def consult_topic():
+    while True:
+        option = input('''
+ _________________________
+|                         |
+|     CONSULT TOPIC       |
+|                         |
+|   1- List all           |
+|   2- Search by name     |
+|   3- Return             |
+|_________________________|
+
+>>> ''')
+
+        match option:
+            case "1":
+                topic_found = False
+                for topic in topic_dict.values():
+                    print(topic.name)
+                    topic_found = True
+                if not topic_found:
+                    print("No have any topic registred!")
+
+            case "2":
+                topic_found = False
+                search_topic_name = input("Enter topic name: ")
+                for topic in topic_dict.values():
+                    if topic.name.upper() == search_topic_name.upper():
+                        print(f"Name: {topic.name}")
+                        print(f"Description: {topic.description}")
+                        print(f"Subject: {topic.subject}")
+                if not topic_found:
+                    print("No topics with that name were found!")
+
+            case "3":
+                break
+
+            case _:
+                print("Please enter a valid option")
+                    

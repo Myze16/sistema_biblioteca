@@ -1,8 +1,9 @@
-from book import Book, Examplary
+from book import Book
 from user import User
 from topic import Topic
 from display_book import *
 from display_topic import *
+from display_user import *
 from database import role_list
 
 
@@ -67,8 +68,7 @@ def consult():
                     print("Error!")
             case "3":
                 try:
-                    pass
-                    #consult_user()
+                    consult_user()
                 except:
                     print("error!")
             case "4":

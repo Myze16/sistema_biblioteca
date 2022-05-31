@@ -1,13 +1,12 @@
-from display_user import UserDisplay
+from display_user import login_user
 from cadastred import cadastred
 from display_menu import *
 
 
 def main():
     cadastred()
-    display_user = UserDisplay()
     while True:
-        user = display_user.login_user()
+        user = login_user()
         if user.role == "ADMIN":
             display_menu_admin()
         

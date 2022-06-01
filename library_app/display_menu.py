@@ -209,7 +209,12 @@ def remove():
             case "3":
                 pass
             case "4":
-                pass
+                user = input("Enter a user name: ")
+                try:
+                    del user_dict[user]
+                    print(f"User {user} deleted!")
+                except:
+                    print("No users with that name were found!")
             case "5":
                 break
             case _:

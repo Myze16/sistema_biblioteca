@@ -203,7 +203,12 @@ def remove():
 >>> ''')
         match option:
             case "1":
-                pass
+                book_name = input("Enter a book name: ")
+                try:
+                    del book_dict[book_name]
+                    print(f"Book {book_name} deleted!")
+                except:
+                    print("No book with that name were found!")
             case "2":
                  pass
             case "3":

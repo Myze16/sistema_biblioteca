@@ -150,6 +150,7 @@ def consult_topic():
                 search_topic_name = input("Enter topic name: ")
                 for topic in topic_dict.values():
                     if topic.name.upper() == search_topic_name.upper():
+                        topic_found = True
                         print(f"Name: {topic.name}")
                         print(f"Description: {topic.description}")
                         print(f"Subject: {topic.subject}")

@@ -1,16 +1,15 @@
 from database import book_dict, exemplary_dict, topic_dict
 
 class Book:
-    def __init__(self, title, isbn, author, edition, publishing_company, year, topic, exemplary={}):
-        self._title = title
-        self._isbn = isbn  # validar isbn(unico)
-        self._author = author
-        self._edition = edition # Quantas vezes o livro foi publicdo
-        self._publishing_company = publishing_company
-        self._year = year
-        self._topic = topic
+    def __init__(self, exemplary={}):
+        self._title = None
+        self._isbn = None # validar isbn(unico)
+        self._author = None
+        self._edition = None # Quantas vezes o livro foi publicdo
+        self._publishing_company = None
+        self._year = None
+        self._topic = None
         self._exemplary = {}
-        book_dict[self._title] = self
 
     @property
     def title(self):
@@ -18,12 +17,11 @@ class Book:
 
     @title.setter
     def title(self, title):
-        if title in book_dict:
-            return False
-        else:
-            book_dict[title] = book_dict[self._title]
-            del book_dict[self._title]
+        if title not in book_dict:
             self._title = title
+            book_dict[title] = self
+        else:
+            raise Exception
 
     @property
     def isbn(self):
@@ -31,10 +29,10 @@ class Book:
 
     @isbn.setter
     def isbn(self, isbn):
-        if vars(self)['isbn'] == isbn:
-            return False
+        if len(str(isbn)) == 13:
+            self._isbn = isbn
         else:
-            return True
+            raise Exception
 
     @property
     def author(self):
@@ -66,7 +64,10 @@ class Book:
 
     @year.setter
     def year(self, year):
-        self._year = year
+        if year.isnumeric() and len(year) == 4:
+            self._year = year
+        else:
+            raise Exception
 
     @property
     def topic(self):
@@ -75,7 +76,7 @@ class Book:
     @topic.setter
     def topic(self, topic):
         if topic in topic_dict:
-            self._topic = topic
+            self._topic = topic_dict[topic]
             return True
         else:
             return False

@@ -1,5 +1,6 @@
 from book import Book, Exemplary
 from topic import Topic
+import time
 from database import book_dict, topic_dict
 
 
@@ -102,8 +103,8 @@ def consult_book():
                 for book in book_dict.values():
                     if (book.topic.name).upper() == (search_book_topic).upper():
                         book_found = True
-                        print("-="*20)
-                        print(f"Title: {book.title} \nAuthor: {book.author} \nExamplaries: {book.exemplary} \nEdition: {book.edition} \nTopic: {book.topic.name} \nPublishing Company: {book.publishing_company} \nYear: {book.year}")
+                        time.sleep(1)
+                        print(f"\nTitle: {book.title} \nAuthor: {book.author} \nExamplaries: {book.exemplary} \nEdition: {book.edition} \nTopic: {book.topic.name} \nPublishing Company: {book.publishing_company} \nYear: {book.year}")
                 if not book_found:
                     print("No books with that topic were found!")
 

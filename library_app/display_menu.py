@@ -102,17 +102,29 @@ def register():
         match option:
             case "1":
                 try:
+                    book = Book()#title, isbn, author, edition, publi, year, topic
                     title = input("Title: ")
-                    isbn = input("Isbn: ")
+                    book.title = title
+                    isbn = int(input("Isbn: "))
+                    book.isbn = isbn
                     author = input("Author: ")
+                    book.author = author
                     edition = input("Edition: ")
+                    book.edition = edition
                     publi = input("Publishing company: ")
+                    book.publishing_company = publi
                     year = input("Year: ")
+                    book.year = year
+                    print("TOPIC LIST")
+                    for i in topic_dict:
+                        print(f"- {i}")
                     topic = input("Topic: ")
-                    book = Book(title, isbn, author, edition, publi, year, topic)
+                    book.topic =topic
                     print(f"Book {book.title} registered!")
+                    print(book_dict)
                 except:
-                    print("Unable to register Book!")
+                    del book_dict[title]
+                    print("Please enter valid information!")
             case "2":
                 try:
                     pass

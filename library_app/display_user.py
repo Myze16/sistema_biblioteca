@@ -4,7 +4,7 @@ from user import User
 
 def login_user():
     option = input('''
-________________
+ ________________
 |                |
 |     LOGIN      |
 |                |

@@ -25,8 +25,8 @@ class User:
 
     @cpf.setter
     def cpf(self, cpf):
-        for i in user_dict:
-            if user_dict[i]["cpf"] == cpf or len(cpf) != 11:
+        for user in user_dict:
+            if user_dict[user].cpf == cpf or len(cpf) != 11:
                 raise Exception
             else:
                 self._cpf = cpf

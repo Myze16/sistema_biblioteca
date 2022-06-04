@@ -5,16 +5,16 @@ def update_topic():
     while True:
         try:
             option = input('''
-     __________________________
-    |                          |
-    |          UPDATE          |
-    |                          |
-    |  1- List Topics          |
-    |  2- Update Title         |
-    |  3- Update Description   |
-    |  4- Update Subject       |
-    |  5- Return               |
-    |__________________________|
+ __________________________
+|                          |
+|          UPDATE          |
+|                          |
+|  1- List Topics          |
+|  2- Update Title         |
+|  3- Update Description   |
+|  4- Update Subject       |
+|  5- Return               |
+|__________________________|
 
 >>> ''')
             match option:

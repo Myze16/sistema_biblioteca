@@ -3,7 +3,8 @@ from user import User
 
 
 def login_user():
-    option = input('''
+    while True:
+        option = input('''
  ________________
 |                |
 |     LOGIN      |
@@ -13,27 +14,27 @@ def login_user():
 |________________|
 
 >>> ''')
-    match option:
-        case "1":
-            name = input("Name: ")
-            password = input("Password: ")
-            try:
-                if name in user_dict:
-                    user = user_dict.get(name, "")
-                    if user.login(password):
-                        print(f"\nLogin successfully, welcome {name}!")
-                        return user
+        match option:
+            case "1":
+                name = input("Name: ")
+                password = input("Password: ")
+                try:
+                    if name in user_dict:
+                        user = user_dict.get(name, "")
+                        if user.login(password):
+                            print(f"\nLogin successfully, welcome {name}!")
+                            return user
+                        else:
+                            print("\nInvalid password!!!")
                     else:
-                        print("\nInvalid password!!!")
-                else:
-                    print("\nInvalid user!!!")
-            except:
-                print("\nInvalid information")
-        case "2":
-            print("\nGoing out...")
-            exit()
-        case _:
-            print("\nPlease enter a valid option")
+                        print("\nInvalid user!!!")
+                except:
+                    print("\nInvalid information")
+            case "2":
+                print("\nGoing out...")
+                exit()
+            case _:
+                print("\nPlease enter a valid option")
 
 def update_user():
     while True:

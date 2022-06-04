@@ -7,9 +7,7 @@ def main():
     cadastred()
     while True:
         user = login_user()
-        if not user:
-            pass
-        elif user.role == "ADMIN":
+        if user.role == "ADMIN":
             display_menu_admin()
         
 if __name__ == "__main__":

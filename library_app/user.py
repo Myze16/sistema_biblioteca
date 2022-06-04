@@ -15,10 +15,9 @@ class User:
 
     @name.setter
     def name(self, name):
-        if name in user_dict:
-            raise Exception
-        else:
-            self._name = name
+        user_dict[name] = user_dict[self._name]
+        del user_dict[self._name]
+        self._name = name
 
     @property
     def cpf(self):

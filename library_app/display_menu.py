@@ -191,7 +191,7 @@ def update():
                 except:
                     print("Unable to register Topic!")
             case "4":
-                pass
+                update_user()
             case "5":
                 break
             case _:

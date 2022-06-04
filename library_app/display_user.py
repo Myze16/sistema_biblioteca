@@ -1,4 +1,4 @@
-from database import user_dict
+from database import user_dict, role_list
 from user import User
 
 
@@ -34,6 +34,74 @@ def login_user():
             exit()
         case _:
             print("\nPlease enter a valid option")
+
+def update_user():
+    while True:
+        option = input('''
+ __________________________
+|                          |
+|          UPDATE          |
+|                          |
+|  1- List users           |
+|  2- Update name          |
+|  3- Update cpf           |
+|  4- Update password      |
+|  5- Update role          |
+|  6- Return               | 
+|__________________________|
+
+>>> ''')
+        match option:
+            case "1":
+                try:
+                    if user_dict:
+                        for user in user_dict:
+                            print(f"{user_dict[user].name} - {user_dict[user].cpf} - {user_dict[user].role}")
+                except:
+                    print("There are no users registered!")
+            case "2":
+                try:
+                    user = input("Enter user name: ")
+                    user = user_dict[user]
+                    new_name = input("Enter new user name: ")
+                    user.name = new_name
+                    print(f"New name {user.name} successfully applied!")
+                except:
+                    print("User not found!")
+            case "3":
+                try:
+                    user = input("Enter user name: ")
+                    user = user_dict[user]
+                    new_cpf = input("Enter new user cpf: ")
+                    user.cpf = new_cpf
+                    print(f"New cpf {user.cpf} successfully applied!")
+                except:
+                    print("User not found!")
+            case "4":
+                try:
+                    user = input("Enter user name: ")
+                    user = user_dict[user]
+                    new_password = input("Enter new user password: ")
+                    user.password = new_password
+                    print(f"New password {user.password} successfully applied!")
+                except:
+                    print("User not found!")
+            case "5":
+                try:
+                    user = input("Enter user name: ")
+                    user = user_dict[user]
+                    print("----Roles----")
+                    for i, role in enumerate(role_list):
+                        print(role)
+                    new_role = input("Enter new user role: ")
+                    user.role = new_role
+                    print(f"New role {user.role} successfully applied!")
+                except:
+                    print("User not found!")
+            case "6":
+                break
+            case _:
+                print("Please enter a valid option!")
 
 def consult_user():
     while True:

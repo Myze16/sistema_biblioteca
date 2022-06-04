@@ -19,7 +19,7 @@ def login_user():
             password = input("Password: ")
             try:
                 if name in user_dict:
-                    user = user_dict[name]
+                    user = user_dict.get(name, "")
                     if user.login(password):
                         print(f"\nLogin successfully, welcome {name}!")
                         return user

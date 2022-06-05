@@ -1,4 +1,4 @@
-from book import Book
+from book import Book, Exemplary
 from user import User
 from topic import Topic
 from display_book import *
@@ -102,7 +102,7 @@ def register():
         match option:
             case "1":
                 try:
-                    book = Book()#title, isbn, author, edition, publi, year, topic
+                    book = Book()
                     title = input("Title: ")
                     book.title = title
                     isbn = int(input("Isbn: "))
@@ -119,17 +119,25 @@ def register():
                     for i in topic_dict:
                         print(f"- {i}")
                     topic = input("Topic: ")
-                    book.topic =topic
+                    book.topic = topic
                     print(f"Book {book.title} registered!")
-                    print(book_dict)
                 except:
                     del book_dict[title]
                     print("Please enter valid information!")
             case "2":
                 try:
-                    pass
-                    #exemplarey = Exemplary.set_info()
-                    #print(f"Book {exemplary.title} registered!")
+                    if book_dict:
+                        for i in book_dict:
+                            print(i)
+                        book = input("Insira um livro no qual deseja cadastrar o exemplar: ")
+                        if book in book_dict:
+                            book = book_dict[book]
+                            exemplary = Exemplary(book)
+                            print(f"Exemplary {exemplary.book.title} registered!")
+                        else:
+                            print("Please enter valid information!")
+                    else:
+                        print("Please crie um livro!")
                 except:
                     print("Unable to register Exemplary!")
             case "3":

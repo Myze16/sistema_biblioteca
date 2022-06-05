@@ -84,33 +84,23 @@ class Book:
     @property
     def exemplary(self):
         return self._exemplary
-    
-    @exemplary.setter
-    def exemplary(self, new_exemplary):
-        for exemp in self._exemplary:
-            last_id = exemp.id
-        if last_id == None:
-            last_id = 0
-        new_id = last_id + 1
-        new_exemplary.id = new_id
-        self._exemplary[f"{new_id}"] = new_exemplary
 
-    
-class Exemplary(Book):
-    def __init__(self, title, isbn, author, edition, publishing_company, year, topic):
-        super().__init__(title, isbn, author, edition, publishing_company, year, topic)
-        self._id = None
+
+class Exemplary:
+    def __init__(self, book):
+        self._book = book
+        self._id = int(list(book.exemplary.keys())[-1]) + 1 if book.exemplary else 0
         self._availability = None
         exemplary_dict[self._id] = self
-        super().exemplary[self._id] = self
+        book.exemplary[self._id] = self
+
+    @property
+    def book(self):
+        return self._book
 
     @property
     def id(self):
         return self._id
-
-    @id.setter
-    def id(self, id):
-        self._id = id
 
     @property
     def availability(self):

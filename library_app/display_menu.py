@@ -129,7 +129,7 @@ def register():
                     if book_dict:
                         for i in book_dict:
                             print(i)
-                        book = input("Insira um livro no qual deseja cadastrar o exemplar: ")
+                        book = input("Insert a book in which you want to register the copy: ")
                         if book in book_dict:
                             book = book_dict[book]
                             exemplary = Exemplary(book)
@@ -137,7 +137,7 @@ def register():
                         else:
                             print("Please enter valid information!")
                     else:
-                        print("Please crie um livro!")
+                        print("There are no books registered, please create a book!")
                 except:
                     print("Unable to register Exemplary!")
             case "3":

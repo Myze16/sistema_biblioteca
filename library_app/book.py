@@ -3,9 +3,9 @@ from database import book_dict, exemplary_dict, topic_dict
 class Book:
     def __init__(self, exemplary={}):
         self._title = None
-        self._isbn = None # validar isbn(unico)
+        self._isbn = None
         self._author = None
-        self._edition = None # Quantas vezes o livro foi publicdo
+        self._edition = None
         self._publishing_company = None
         self._year = None
         self._topic = None

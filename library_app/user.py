@@ -80,12 +80,3 @@ class User:
             return True
         else:
             return False
-
-    # @classmethod
-    # def set_user(cls, name, cpf, password, role):
-    #     user = User()
-    #     user.name = name
-    #     user.cpf = cpf
-    #     user.password = password
-    #     user.role = role
-    #     user_dict[user.name] = user

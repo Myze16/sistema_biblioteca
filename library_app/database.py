@@ -21,3 +21,7 @@ book_dict = {
 exemplary_dict = {
     
 }
+
+loan_dict = {
+
+}

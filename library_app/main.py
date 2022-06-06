@@ -8,7 +8,7 @@ def main():
     while True:
         user = login_user()
         if user.role == "ADMIN":
-            display_menu_admin()
+            display_menu_admin(user)
         
 if __name__ == "__main__":
     main()

@@ -1,14 +1,16 @@
+from time import sleep
 from book import Book, Exemplary
 from user import User
 from topic import Topic
+from loan import Loan
 from display_book import *
 from display_topic import *
 from display_exemplary import *
 from display_user import *
-from database import role_list
+from database import *
 
 
-def display_menu_admin():
+def display_menu_admin(user):
         while True:
             option = input('''
  __________________________
@@ -28,7 +30,7 @@ def display_menu_admin():
                 case "1":
                     consult()
                 case "2":
-                    register()
+                    register(user)
                 case "3":
                     update()
                 case "4":
@@ -84,7 +86,7 @@ def consult():
                 print("Please enter a valid option!")
 # -------------------------------------------------------------------
 
-def register():
+def register(user):
     while True:
         option = input('''
  __________________________
@@ -95,7 +97,8 @@ def register():
 |  2- Register exemplary   |
 |  3- Register topic       |
 |  4- Register user        |
-|  5- Return               |
+|  5- Register loan        |
+|  6- Return               |
 |__________________________|
 
 >>> ''')
@@ -163,6 +166,29 @@ def register():
                 except:
                     print("Unable to register User!")
             case "5":
+                try:
+                    user = user
+                    if book_dict:
+                        for i in book_dict:
+                            print(i)
+                            sleep(0.2)
+                    else:
+                        print("There are no books registered, please create a book!\n")
+                        raise Exception
+                    book = input("Enter the book: ")
+                    if book in book_dict:
+                        book = book_dict[book]
+                    else:
+                        raise Exception
+                    year = int(input("Year: "))
+                    month = int(input("Month: "))
+                    day = int(input("Day: "))
+                    initial_date = Loan.convert_date(year, month, day)
+                    Loan(user, book, initial_date)
+                    print(f"Loan {book.title} registered for {initial_date}!")
+                except:
+                    print("Unable to register Loan!")
+            case "6":
                 break
             case _:
                 print("Please enter a valid option!")

@@ -264,7 +264,7 @@ def generate_report():
 >>> ''')
         match option:
             case "1":
-                pass
+                books_report()
             case "2":
                 pass
             case "3":
@@ -277,3 +277,14 @@ def generate_report():
                 break
             case _:
                 print("Please enter a valid option!")
+
+def books_report():
+    for book in book_dict.values():
+        print(f"---{book.title}---")
+        print(f"Isbn: {book.isbn}")
+        print(f"Topic: {book.topic.name}")
+        print(f"Author: {book.author}")
+        print(f"Year: {book.year}")
+        print(f"Edition: {book.edition}")
+        print(f"Publishing Company: {book.publishing_company}")
+

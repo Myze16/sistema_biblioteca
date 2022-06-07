@@ -550,7 +550,7 @@ def books_report():
         print(f"Publishing Company: {book.publishing_company}")
         print(f"Number of examplary: {len(book.exemplary)}")
         available = 0
-        for exemplary in book.exemplary:
+        for exemplary in book.exemplary.values():
             if exemplary.availability:
                 available += 1
         print(f"Number of available: {available}")

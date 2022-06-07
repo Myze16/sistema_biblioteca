@@ -313,4 +313,11 @@ def books_report():
         print(f"Year: {book.year}")
         print(f"Edition: {book.edition}")
         print(f"Publishing Company: {book.publishing_company}")
+        print(f"Number of examplary: {len(book.exemplary)}")
+        available = 0
+        for exemplary in book.exemplary:
+            if exemplary.availability:
+                available += 1
+        print(f"Number of available: {available}")
+        print()
 

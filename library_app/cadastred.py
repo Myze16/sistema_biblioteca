@@ -12,5 +12,14 @@ def cadastred():
     teste_dois = Topic("rrsdfa", "Genero melancolico", "dnfsfsf")
 
     # Books
+    new_book = Book()
+    new_book.title = "Teste Título"
+    new_book.isbn = "1234567890123"
+    new_book.author = "adm"
+    new_book.edition = "1"
+    new_book.publishing_company = "UVASS"
+    new_book.year = "2022"
+    new_book.topic = "Drama"
+    
 
     # Exemplary

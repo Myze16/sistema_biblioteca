@@ -304,7 +304,7 @@ def generate_report():
             case "3":
                 reserved_report()
             case "4":
-                pass
+                user_report()
             case "5":
                 pass
             case "6":
@@ -333,3 +333,11 @@ def reserved_report():
     for book_reserved in reservation_dict.values():
         print(f"\nUser: {book_reserved.user.name} \nBook: {book_reserved.book.title} \nInitial Date: {book_reserved.initial_date} \
             \nFinal Date: {book_reserved.final_date}")
+
+def user_report():
+    try:
+        if user_dict:
+            for user in user_dict:
+                print(f"{user_dict[user].name} - {user_dict[user].cpf} - {user_dict[user].role}")
+    except:
+        print("There are no users registered!")

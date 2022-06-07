@@ -150,4 +150,3 @@ def consult_user():
                 break
             case _:
                 print("Please enter a valid option")
-

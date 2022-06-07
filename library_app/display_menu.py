@@ -108,7 +108,7 @@ def display_menu_employee(user):
             case "1":
                 consult()
             case "2":
-                register_employee()
+                register_employee(user)
             case "3":
                 break
             case _:
@@ -142,7 +142,6 @@ def consult():
                     consult_exemplary()
                 except:
                     print("Error!")
-                
             case "3":
                 try:
                     consult_topic()
@@ -242,6 +241,28 @@ def register_employee(user):
                 except:
                     print("Unable to register reservation!")
             case "3":
+                try:
+                    user = user
+                    print("Choose a book: ")
+                    sleep(1)
+                    if book_dict:
+                        for i in book_dict:
+                            print(i)
+                            sleep(0.2)
+                    else:
+                        print("There are no books registered, please create a book!\n")
+                        raise Exception
+                    book = input("Enter the book: ")
+                    if book in book_dict:
+                        book = book_dict[book]
+                    else:
+                        raise Exception
+                    exemplary = Reservation.verify_exemplary(book)
+                    Reservation(user, book, exemplary)
+                    print(f"reservation {book.title} registered for {initial_date}!")
+                except:
+                    print("Unable to register reservation!")        
+            case "4":
                 break
             case _:
                 print("Please enter a valid option!")

@@ -6,7 +6,7 @@ class User:
         self._cpf = cpf
         self._password = password
         self._role = role
-        self._pendency = []
+        self._pendency = {}
         user_dict[self._name] = self
 
     @property
@@ -58,22 +58,21 @@ class User:
     def pendency(self, book):
         if self._role == "STUDENT" or "EMPLOYEE":
             if self._pendency < 3:
-                book = book.upper()
-                if book not in self._pendency:
-                    self._pendency.append(book)
+                if book.title not in self._pendency:
+                    self._pendency[book.title] = book
                     return True
                 else:
                     return False
         elif self._role == "TEACHER":
             if self._pendency < 5:
                 book = book.upper()
-                if book not in self._pendency:
-                    self._pendency.append(book)
+                if book.title not in self._pendency:
+                    self._pendency[book.title] = book
                     return True
                 else:
                     return False
         else:
-            self._pendency.append(book)
+            self._pendency[book.title] = book
 
     def login(self, password_input):
         if password_input == self.password:

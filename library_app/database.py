@@ -25,3 +25,7 @@ exemplary_dict = {
 reservation_dict = {
     
 }
+
+loan_dict = {
+    
+}

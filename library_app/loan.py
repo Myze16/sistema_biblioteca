@@ -6,9 +6,11 @@ class Loan:
         self._user = user
         self._book = book
         self._exemplary = exemplary
+        self._id = int(list(book.exemplary.keys())[-1]) + 1 if book.exemplary else 0
         self._inital_date = datetime.now()
         self._final_date = self._inital_date + timedelta(days=10) if user.role == "STUDENT" or user.role == "EMPLOYEE" else self._inital_date + timedelta(days=15)
-        loan_dict[self._]= self
+        loan_dict[self._id] = self
+        self._user.insert_pendency(book, self)
 
     @property
     def user(self):
@@ -29,3 +31,13 @@ class Loan:
     @property
     def final_date(self):
         return self._final_date
+    
+    @classmethod
+    def verify_exemplary(cls, book):
+        available_exemplary = False
+        for exemplary in book.exemplary.values():
+            if exemplary.availability:
+                available_exemplary = True
+                return exemplary
+        if not available_exemplary:
+            raise Exception

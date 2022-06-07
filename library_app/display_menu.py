@@ -3,6 +3,7 @@ from book import Book, Exemplary
 from display_reservation import consult_reservation
 from user import User
 from topic import Topic
+from loan import Loan
 from reservation import Reservation
 from display_book import *
 from display_topic import *
@@ -62,7 +63,7 @@ def display_menu_librarian(user):
             case "1":
                 consult()
             case "2":
-                register(user)
+                register_librarian(user)
             case "3":
                 update()
             case "4":
@@ -100,7 +101,8 @@ def display_menu_employee(user):
 |           MENU           |
 |                          |
 |  1- Consult              |
-|  2- Return               |
+|  2- Register             |
+|  3- Return               |
 |__________________________|
 
 >>> ''')
@@ -186,21 +188,46 @@ def consult_student():
                 print("Please enter a valid option!")
 # -------------------------------------------------------------------
 
-def register_employee(user):
+def register_librarian(user):
     while True:
         option = input('''
  __________________________
 |                          |
 |         REGISTER         |
 |                          |
-|  1- Register exemplary   |
-|  2- Register reservation | 
-|  3- Return               |
+|  1- Register book        |
+|  2- Register exemplary   |
+|  3- Register topic       |
+|  4- Return               |
 |__________________________|
 
 >>> ''')
         match option:
             case "1":
+                try:
+                    book = Book()
+                    title = input("Title: ")
+                    book.title = title
+                    isbn = int(input("Isbn: "))
+                    book.isbn = isbn
+                    author = input("Author: ")
+                    book.author = author
+                    edition = input("Edition: ")
+                    book.edition = edition
+                    publi = input("Publishing company: ")
+                    book.publishing_company = publi
+                    year = input("Year: ")
+                    book.year = year
+                    print("TOPIC LIST")
+                    for i in topic_dict:
+                        print(f"- {i}")
+                    topic = input("Topic: ")
+                    book.topic = topic
+                    print(f"Book {book.title} registered!")
+                except:
+                    del book_dict[title]
+                    print("Please enter valid information!")
+            case "2":
                 try:
                     if book_dict:
                         for i in book_dict:
@@ -216,7 +243,36 @@ def register_employee(user):
                         print("There are no books registered, please create a book!")
                 except:
                     print("Unable to register Exemplary!")
-            case "2":
+            case "3":
+                try:
+                    name = input("Name: ")
+                    description = input("Descripion: ")
+                    subject = input("Subject: ")
+                    topic = Topic(name, description, subject)
+                    print(f"Topic {topic.name} registered!")
+                except:
+                    print("Unable to register Topic!")
+            case "4":
+                break
+            case _:
+                print("Please enter a valid option!")
+# -------------------------------------------------------------------
+
+def register_employee(user):
+    while True:
+        option = input('''
+ __________________________
+|                          |
+|         REGISTER         |
+|                          |
+|  1- Register reservation |
+|  2- Register loan        |  
+|  3- Return               |
+|__________________________|
+
+>>> ''')
+        match option:
+            case "1":
                 try:
                     user = user
                     if book_dict:
@@ -240,11 +296,9 @@ def register_employee(user):
                     print(f"reservation {book.title} registered for {initial_date}!")
                 except:
                     print("Unable to register reservation!")
-            case "3":
+            case "2":
                 try:
                     user = user
-                    print("Choose a book: ")
-                    sleep(1)
                     if book_dict:
                         for i in book_dict:
                             print(i)
@@ -257,12 +311,13 @@ def register_employee(user):
                         book = book_dict[book]
                     else:
                         raise Exception
-                    exemplary = Reservation.verify_exemplary(book)
-                    Reservation(user, book, exemplary)
-                    print(f"reservation {book.title} registered for {initial_date}!")
+                    exemplary = Loan.verify_exemplary(book)
+                    Loan(user, book, exemplary)
+                    print(f"Loan for user {user} created!")
+                    print(user.get_pendencies())
                 except:
-                    print("Unable to register reservation!")        
-            case "4":
+                    print("Unable to register loan!")        
+            case "3":
                 break
             case _:
                 print("Please enter a valid option!")
@@ -513,3 +568,5 @@ def user_report():
                 print(f"{user_dict[user].name} - {user_dict[user].cpf} - {user_dict[user].role}")
     except:
         print("There are no users registered!")
+    
+

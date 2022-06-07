@@ -1,3 +1,4 @@
+from time import sleep
 from database import role_list, user_dict
 
 class User:
@@ -6,7 +7,7 @@ class User:
         self._cpf = cpf
         self._password = password
         self._role = role
-        self._pendency = {}
+        self._pendency = []
         user_dict[self._name] = self
 
     @property
@@ -54,25 +55,30 @@ class User:
     def pendency(self):
         return self._pendency
 
-    @pendency.setter
-    def pendency(self, book):
-        if self._role == "STUDENT" or "EMPLOYEE":
-            if self._pendency < 3:
+    def get_pendencies(self):
+        for loan in self._pendency:
+            sleep(0.5)
+            print(f"Book: {loan.book.title} \nInitial date: {loan.inital_date} \n{loan.final_date}")
+        return False
+
+    def insert_pendency(self, book, loan):
+        if self._role == "STUDENT" or self._role == "EMPLOYEE":
+            if len(self._pendency) < 3:
                 if book.title not in self._pendency:
-                    self._pendency[book.title] = book
+                    self._pendency.append(loan)
                     return True
                 else:
                     return False
         elif self._role == "TEACHER":
-            if self._pendency < 5:
+            if len(self._pendency) < 5:
                 book = book.upper()
                 if book.title not in self._pendency:
-                    self._pendency[book.title] = book
+                    self._pendency.append(loan)
                     return True
                 else:
                     return False
         else:
-            self._pendency[book.title] = book
+            self._pendency.append(loan)
 
     def login(self, password_input):
         if password_input == self.password:

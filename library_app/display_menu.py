@@ -86,7 +86,7 @@ def display_menu_student(user):
 >>> ''')
         match option:
             case "1":
-                consult()
+                consult_student()
             case "2":
                 break
             case _:
@@ -159,6 +159,29 @@ def consult():
                 except:
                     print("Error!")
             case "6":
+                break
+            case _:
+                print("Please enter a valid option!")
+
+def consult_student():
+    while True:
+        option = input('''
+ _________________________
+|                         |
+|         CONSULT         |
+|                         |
+|   1- Book               |
+|   2- Return
+|_________________________|
+
+>>> ''')
+        match option:
+            case "1":
+                try:
+                    consult_book()
+                except:
+                    print("Error!")
+            case "2":
                 break
             case _:
                 print("Please enter a valid option!")

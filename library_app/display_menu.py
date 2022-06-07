@@ -424,9 +424,8 @@ def remove():
 |                          |
 |  1- Remove book          |
 |  2- Remove exemplary     |
-|  3- Remove topic         |
-|  4- Remove user          |
-|  5- Return               |
+|  3- Remove user          |
+|  4- Return               |
 |__________________________|
 
 >>> ''')
@@ -441,15 +440,13 @@ def remove():
             case "2":
                  pass
             case "3":
-                pass
-            case "4":
                 user = input("Enter a user name: ")
                 try:
                     del user_dict[user]
                     print(f"User {user} deleted!")
                 except:
                     print("No users with that name were found!")
-            case "5":
+            case "4":
                 break
             case _:
                 print("Please enter a valid option!")

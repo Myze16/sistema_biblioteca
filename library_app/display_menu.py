@@ -12,8 +12,8 @@ from database import *
 
 
 def display_menu_admin(user):
-        while True:
-            option = input('''
+    while True:
+        option = input('''
  __________________________
 |                          |
 |           MENU           |
@@ -27,21 +27,92 @@ def display_menu_admin(user):
 |__________________________|
 
 >>> ''')
-            match option:
-                case "1":
-                    consult()
-                case "2":
-                    register(user)
-                case "3":
-                    update()
-                case "4":
-                    remove()
-                case "5":
-                    generate_report()
-                case "6":
-                    break
-                case _:
-                    print("Please enter a valid option!")
+        match option:
+            case "1":
+                consult()
+            case "2":
+                register(user)
+            case "3":
+                update()
+            case "4":
+                remove()
+            case "5":
+                generate_report()
+            case "6":
+                break
+            case _:
+                print("Please enter a valid option!")
+
+def display_menu_librarian(user):
+    while True:
+        option = input('''
+ __________________________
+|                          |
+|           MENU           |
+|                          |
+|  1- Consult              |
+|  2- Register             |
+|  3- Update               |
+|  4- Remove               |
+|  5- Return               |
+|__________________________|
+
+>>> ''')
+        match option:
+            case "1":
+                consult()
+            case "2":
+                register(user)
+            case "3":
+                update()
+            case "4":
+                remove()
+            case "5":
+                break
+            case _:
+                print("Please enter a valid option!")
+
+def display_menu_student(user):
+    while True:
+        option = input('''
+ __________________________
+|                          |
+|           MENU           |
+|                          |
+|  1- Consult              |
+|  2- Return               |
+|__________________________|
+
+>>> ''')
+        match option:
+            case "1":
+                consult()
+            case "2":
+                break
+            case _:
+                print("Please enter a valid option!")
+
+def display_menu_employee(user):
+    while True:
+        option = input('''
+ __________________________
+|                          |
+|           MENU           |
+|                          |
+|  1- Consult              |
+|  2- Return               |
+|__________________________|
+
+>>> ''')
+        match option:
+            case "1":
+                consult()
+            case "2":
+                register_employee()
+            case "3":
+                break
+            case _:
+                print("Please enter a valid option!")
 # -------------------------------------------------------------------
 
 def consult():
@@ -92,6 +163,66 @@ def consult():
             case _:
                 print("Please enter a valid option!")
 # -------------------------------------------------------------------
+
+def register_employee(user):
+    while True:
+        option = input('''
+ __________________________
+|                          |
+|         REGISTER         |
+|                          |
+|  1- Register exemplary   |
+|  2- Register reservation | 
+|  3- Return               |
+|__________________________|
+
+>>> ''')
+        match option:
+            case "1":
+                try:
+                    if book_dict:
+                        for i in book_dict:
+                            print(i)
+                        book = input("Insert a book in which you want to register the copy: ")
+                        if book in book_dict:
+                            book = book_dict[book]
+                            exemplary = Exemplary(book)
+                            print(f"Exemplary {exemplary.book.title} registered!")
+                        else:
+                            print("Please enter valid information!")
+                    else:
+                        print("There are no books registered, please create a book!")
+                except:
+                    print("Unable to register Exemplary!")
+            case "2":
+                try:
+                    user = user
+                    if book_dict:
+                        for i in book_dict:
+                            print(i)
+                            sleep(0.2)
+                    else:
+                        print("There are no books registered, please create a book!\n")
+                        raise Exception
+                    book = input("Enter the book: ")
+                    if book in book_dict:
+                        book = book_dict[book]
+                    else:
+                        raise Exception
+                    exemplary = Reservation.verify_exemplary(book)
+                    year = int(input("Year: "))
+                    month = int(input("Month: "))
+                    day = int(input("Day: "))
+                    initial_date = Reservation.convert_date(year, month, day)
+                    Reservation(user, book, initial_date, exemplary)
+                    print(f"reservation {book.title} registered for {initial_date}!")
+                except:
+                    print("Unable to register reservation!")
+            case "3":
+                break
+            case _:
+                print("Please enter a valid option!")
+
 
 def register(user):
     while True:

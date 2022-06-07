@@ -9,6 +9,12 @@ def main():
         user = login_user()
         if user.role == "ADMIN":
             display_menu_admin(user)
+        elif user.role == "LIBRARIAN":
+            display_menu_librarian(user)
+        elif user.role == "EMPLOYEE":
+            display_menu_employee(user)
+        elif user.role == "STUDENT" or user.role == "TEACHER":
+            display_menu_student(user)
         
 if __name__ == "__main__":
     main()

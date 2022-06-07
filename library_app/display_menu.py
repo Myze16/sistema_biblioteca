@@ -1,9 +1,9 @@
 from time import sleep
 from book import Book, Exemplary
-from display_loan import consult_loan
+from display_reservation import consult_reservation
 from user import User
 from topic import Topic
-from loan import Loan
+from reservation import Reservation
 from display_book import *
 from display_topic import *
 from display_exemplary import *
@@ -55,7 +55,7 @@ def consult():
 |   2- Exemplary          |
 |   3- Topic              |
 |   4- User               | 
-|   5- Loan               | 
+|   5- reservation        | 
 |   6- Return             |
 |_________________________|
 
@@ -84,7 +84,7 @@ def consult():
                     print("Error!")
             case "5":
                 try:
-                    consult_loan()
+                    consult_reservation()
                 except:
                     print("Error!")
             case "6":
@@ -104,7 +104,7 @@ def register(user):
 |  2- Register exemplary   |
 |  3- Register topic       |
 |  4- Register user        |
-|  5- Register loan        |
+|  5- Register reservation | 
 |  6- Return               |
 |__________________________|
 
@@ -187,15 +187,15 @@ def register(user):
                         book = book_dict[book]
                     else:
                         raise Exception
-                    exemplary = Loan.verify_exemplary(book)
+                    exemplary = Reservation.verify_exemplary(book)
                     year = int(input("Year: "))
                     month = int(input("Month: "))
                     day = int(input("Day: "))
-                    initial_date = Loan.convert_date(year, month, day)
-                    Loan(user, book, initial_date, exemplary)
-                    print(f"Loan {book.title} registered for {initial_date}!")
+                    initial_date = Reservation.convert_date(year, month, day)
+                    Reservation(user, book, initial_date, exemplary)
+                    print(f"reservation {book.title} registered for {initial_date}!")
                 except:
-                    print("Unable to register Loan!")
+                    print("Unable to register reservation!")
             case "6":
                 break
             case _:

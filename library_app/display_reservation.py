@@ -1,13 +1,13 @@
-from database import loan_dict
+from database import reservation_dict
 
-def consult_loan():
+def consult_reservation():
     while True:
         option = input('''
  ________________________
 |                        |
-|   CONSULT LOAN         |
+|   CONSULT RESERVATION  |
 |                        |
-|   1- List loans        |
+|   1- List reservations |
 |   2- Search by book    |
 |   3- Return            |
 |________________________|
@@ -15,16 +15,16 @@ def consult_loan():
 >>> ''')
         match option:
             case "1":
-                if loan_dict:
-                    for exemplary in loan_dict:
-                        print(f"{loan_dict[exemplary].book.title} - {loan_dict[exemplary].availability}")
+                if reservation_dict:
+                    for exemplary in reservation_dict:
+                        print(f"{reservation_dict[exemplary].book.title} - {reservation_dict[exemplary].availability}")
                 else:
                     print("Don't have any exemplary!")
 
             case "2":
                 exemplary_found = False
                 search_exemplary_book = input("Enter exemplary name: ")
-                for exemplary in loan_dict.values():
+                for exemplary in reservation_dict.values():
                     if exemplary.book.title.upper() == search_exemplary_book.upper():
                         exemplary_found = True
                         print(f"Book: {exemplary.book.title}")
@@ -38,5 +38,5 @@ def consult_loan():
             case _:
                 print("Please enter a valid option")
 
-def update_loan():
+def update_reservation():
     pass

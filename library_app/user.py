@@ -58,7 +58,7 @@ class User:
     def get_pendencies(self):
         for loan in self._pendency:
             sleep(0.5)
-            print(f"Book: {loan.book.title} \nInitial date: {loan.inital_date} \n{loan.final_date}")
+            print(f"Book: {loan.book.title} \nInitial date: {loan.initial_date} \n{loan.final_date}")
         return False
 
     def insert_pendency(self, book, loan):

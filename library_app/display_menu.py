@@ -313,7 +313,7 @@ def register_employee(user):
                         raise Exception
                     exemplary = Loan.verify_exemplary(book)
                     Loan(user, book, exemplary)
-                    print(f"Loan for user {user} created!")
+                    print(f"Loan for user {user.name} created!")
                     print(user.get_pendencies())
                 except:
                     print("Unable to register loan!")        
@@ -335,7 +335,8 @@ def register(user):
 |  3- Register topic       |
 |  4- Register user        |
 |  5- Register reservation | 
-|  6- Return               |
+|  6- Register loan        |
+|  7- Return               |
 |__________________________|
 
 >>> ''')
@@ -427,6 +428,27 @@ def register(user):
                 except:
                     print("Unable to register reservation!")
             case "6":
+                try:
+                    user = user
+                    if book_dict:
+                        for i in book_dict:
+                            print(i)
+                            sleep(0.2)
+                    else:
+                        print("There are no books registered, please create a book!\n")
+                        raise Exception
+                    book = input("Enter the book: ")
+                    if book in book_dict:
+                        book = book_dict[book]
+                    else:
+                        raise Exception
+                    exemplary = Loan.verify_exemplary(book)
+                    Loan(user, book, exemplary)
+                    print(f"Loan for user {user.name} created!")
+                    print(user.get_pendencies())
+                except:
+                    print("Unable to register loan!")   
+            case "7":
                 break
             case _:
                 print("Please enter a valid option!")

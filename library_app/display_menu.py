@@ -448,14 +448,20 @@ def update():
 >>> ''')
         match option:
             case "1":
-                update_book()
+                try:
+                    update_book()
+                except:
+                    print("Unable to update book!")
             case "2":
                 try:
                     update_topic()
                 except:
-                    print("Unable to register Topic!")
+                    print("Unable to update topic!")
             case "3":
-                update_user()
+                try:
+                    update_user()
+                except:
+                    print("Unable to update user!")
             case "4":
                 break
             case _:

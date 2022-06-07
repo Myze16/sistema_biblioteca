@@ -1,7 +1,5 @@
 from database import exemplary_dict
 
-def update_exemplary():
-    pass
 
 def consult_exemplary():
     while True:

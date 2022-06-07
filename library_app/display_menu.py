@@ -440,10 +440,9 @@ def update():
 |          UPDATE          |
 |                          |
 |  1- Update book          |
-|  2- Update exemplary     |
-|  3- Update topic         |
-|  4- Update user          |
-|  5- Return               |
+|  2- Update topic         |
+|  3- Update user          |
+|  4- Return               |
 |__________________________|
 
 >>> ''')
@@ -452,19 +451,12 @@ def update():
                 update_book()
             case "2":
                 try:
-                    pass
-                    #exemplarey = Exemplary.set_info()
-                    #print(f"Book {exemplary.title} registered!")
-                except:
-                    print("Unable to register Exemplary!")
-            case "3":
-                try:
                     update_topic()
                 except:
                     print("Unable to register Topic!")
-            case "4":
+            case "3":
                 update_user()
-            case "5":
+            case "4":
                 break
             case _:
                 print("Please enter a valid option!")

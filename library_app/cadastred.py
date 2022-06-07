@@ -23,3 +23,4 @@ def cadastred():
     
 
     # Exemplary
+    new_exemplary = Exemplary(new_book)

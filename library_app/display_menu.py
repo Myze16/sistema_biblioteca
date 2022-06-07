@@ -1,5 +1,6 @@
 from time import sleep
 from book import Book, Exemplary
+from display_loan import consult_loan
 from user import User
 from topic import Topic
 from loan import Loan
@@ -54,7 +55,8 @@ def consult():
 |   2- Exemplary          |
 |   3- Topic              |
 |   4- User               | 
-|   5- Return             |
+|   5- Loan               | 
+|   6- Return             |
 |_________________________|
 
 >>> ''')
@@ -81,6 +83,11 @@ def consult():
                 except:
                     print("Error!")
             case "5":
+                try:
+                    consult_loan()
+                except:
+                    print("Error!")
+            case "6":
                 break
             case _:
                 print("Please enter a valid option!")
@@ -180,11 +187,12 @@ def register(user):
                         book = book_dict[book]
                     else:
                         raise Exception
+                    exemplary = Loan.verify_exemplary(book)
                     year = int(input("Year: "))
                     month = int(input("Month: "))
                     day = int(input("Day: "))
                     initial_date = Loan.convert_date(year, month, day)
-                    Loan(user, book, initial_date)
+                    Loan(user, book, initial_date, exemplary)
                     print(f"Loan {book.title} registered for {initial_date}!")
                 except:
                     print("Unable to register Loan!")

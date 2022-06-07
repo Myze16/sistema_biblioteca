@@ -5,9 +5,9 @@ def consult_loan():
         option = input('''
  ________________________
 |                        |
-|   CONSULT EXEMPLARY    |
+|   CONSULT LOAN         |
 |                        |
-|   1- List exemplaries  |
+|   1- List loans        |
 |   2- Search by book    |
 |   3- Return            |
 |________________________|
@@ -18,6 +18,8 @@ def consult_loan():
                 if loan_dict:
                     for exemplary in loan_dict:
                         print(f"{loan_dict[exemplary].book.title} - {loan_dict[exemplary].availability}")
+                else:
+                    print("Don't have any exemplary!")
 
             case "2":
                 exemplary_found = False

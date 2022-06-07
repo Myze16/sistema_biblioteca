@@ -90,7 +90,7 @@ class Exemplary:
     def __init__(self, book):
         self._book = book
         self._id = int(list(book.exemplary.keys())[-1]) + 1 if book.exemplary else 0
-        self._availability = None
+        self._availability = True
         exemplary_dict[self._id] = self
         book.exemplary[self._id] = self
 

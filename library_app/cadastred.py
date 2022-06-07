@@ -1,10 +1,11 @@
+from reservation import Reservation
 from topic import Topic
 from book import Book, Exemplary
 from user import User
 
 def cadastred():
     #Users
-    User("adm", "12678787890", "123", "ADMIN")
+    new_user = User("adm", "12678787890", "123", "ADMIN")
 
     # Topics
     teste = Topic("Drama", "Genero melancolico", "dnfsfsf")
@@ -24,3 +25,8 @@ def cadastred():
 
     # Exemplary
     new_exemplary = Exemplary(new_book)
+
+    # Reservation
+    exemplary = Reservation.verify_exemplary(new_book)
+    initial_date = Reservation.convert_date(2022, 1, 1)
+    new_reservation = Reservation(new_user, new_book, initial_date, exemplary )

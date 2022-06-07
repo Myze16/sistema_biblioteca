@@ -302,7 +302,7 @@ def generate_report():
             case "2":
                 pass
             case "3":
-                pass
+                reserved_report()
             case "4":
                 pass
             case "5":
@@ -329,3 +329,7 @@ def books_report():
         print(f"Number of available: {available}")
         print()
 
+def reserved_report():
+    for book_reserved in reservation_dict.values():
+        print(f"\nUser: {book_reserved.user.name} \nBook: {book_reserved.book.title} \nInitial Date: {book_reserved.initial_date} \
+            \nFinal Date: {book_reserved.final_date}")

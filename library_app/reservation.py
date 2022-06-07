@@ -24,6 +24,10 @@ class Reservation:
     def final_date(self):
         return self._final_date
 
+    @property
+    def user(self):
+        return self._user
+
     @classmethod
     def convert_date(cls, year, month, day):
         return datetime(year, month, day)

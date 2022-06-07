@@ -1,6 +1,6 @@
 from book import Book, Exemplary
 from topic import Topic
-import time
+from time import sleep
 from database import book_dict, topic_dict
 
 
@@ -93,7 +93,7 @@ def consult_book():
                 for book in book_dict.values():
                     if search_book_name.upper() == book.title.upper():
                         book_found = True
-                        print(f"Title: {book.title} \nAuthor: {book.author} \nExamplaries: {book.exemplary} \nTopic: {book.topic.name} \nYear: {book.year}")
+                        print(f"Title: {book.title} \nAuthor: {book.author} \nExamplaries: {len(book.exemplary)} \nTopic: {book.topic.name} \nYear: {book.year}")
                 if not book_found:
                     print("No books with that name were found!")
 
@@ -103,8 +103,8 @@ def consult_book():
                 for book in book_dict.values():
                     if (book.topic.name).upper() == (search_book_topic).upper():
                         book_found = True
-                        time.sleep(0.5)
-                        print(f"\nTitle: {book.title} \nAuthor: {book.author} \nExamplaries: {book.exemplary} \nEdition: {book.edition} \nTopic: {book.topic.name} \nPublishing Company: {book.publishing_company} \nYear: {book.year}")
+                        sleep(0.5)
+                        print(f"\nTitle: {book.title} \nAuthor: {book.author} \nExamplaries: {len(book.exemplary)} \nEdition: {book.edition} \nTopic: {book.topic.name} \nPublishing Company: {book.publishing_company} \nYear: {book.year}")
                 if not book_found:
                     print("No books with that topic were found!")
 
@@ -114,8 +114,8 @@ def consult_book():
                 for book in book_dict.values():
                     if book.author.upper() == search_book_author.upper():
                         book_found = True
-                        print("-="*20)
-                        print(f"Title: {book.title} \nAuthor: {book.author} \nExamplaries: {book.exemplary} \nEdition: {book.edition} \nTopic: {book.topic.name} \nPublishing Company: {book.publishing_company} \nYear: {book.year}")
+                        sleep(0.5)
+                        print(f"Title: {book.title} \nAuthor: {book.author} \nExamplaries: {len(book.exemplary)} \nEdition: {book.edition} \nTopic: {book.topic.name} \nPublishing Company: {book.publishing_company} \nYear: {book.year}")
                 if not book_found:
                     print("No books with that author were found!")
             case "4":

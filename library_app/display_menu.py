@@ -563,12 +563,16 @@ def generate_report():
                 print("Please enter a valid option!")
 
 def borrowed_report():
-    for loan in loan_dict.values():
-        try:
+    try:
+        loan_found = False
+        for loan in loan_dict.values():
+            loan_found = True
             print(f"User: {loan.user.name} \nBook: {loan.book.title} \nInitial date: {loan.initial_date} \nFinal date: {loan.final_date}")
             sleep(0.5)
-        except:
+        if not loan_found:
             print("There are no loans registered!")
+    except:
+        print("Error borrowed report!")
 
 def books_report():
     for book in book_dict.values():
@@ -610,5 +614,5 @@ def overdue_report():
         if not loan_overdue:
             print("There are no loans overdued!")
     except:
-        print("There are no loans overdued!")
+        print("Error overdue report!")
 

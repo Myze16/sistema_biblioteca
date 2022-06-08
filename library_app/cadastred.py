@@ -41,4 +41,4 @@ def cadastred():
     # Reservation
     exemplary = Reservation.verify_exemplary(new_book)
     initial_date = Reservation.convert_date(2022, 1, 1)
-    new_reservation = Reservation(admin, new_book, initial_date, exemplary )
+    new_reservation = Reservation(admin, new_book, initial_date, exemplary)

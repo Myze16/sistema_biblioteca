@@ -173,7 +173,7 @@ def consult_student():
 |         CONSULT         |
 |                         |
 |   1- Book               |
-|   2- Return
+|   2- Return             |
 |_________________________|
 
 >>> ''')

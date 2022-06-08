@@ -115,7 +115,7 @@ def consult_book():
                     if book.author.upper() == search_book_author.upper():
                         book_found = True
                         sleep(0.5)
-                        print(f"Title: {book.title} \nAuthor: {book.author} \nExamplaries: {len(book.exemplary)} \nEdition: {book.edition} \nTopic: {book.topic.name} \nPublishing Company: {book.publishing_company} \nYear: {book.year}")
+                        print(f"\nTitle: {book.title} \nAuthor: {book.author} \nExamplaries: {len(book.exemplary)} \nEdition: {book.edition} \nTopic: {book.topic.name} \nPublishing Company: {book.publishing_company} \nYear: {book.year}")
                 if not book_found:
                     print("No books with that author were found!")
             case "4":

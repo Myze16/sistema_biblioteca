@@ -449,7 +449,6 @@ def register(user):
                     exemplary = Loan.verify_exemplary(book)
                     Loan(user, book, exemplary)
                     print(f"Loan for user {user.name} created!")
-                    print(user.get_pendencies())
                 except:
                     print("Unable to register loan!")   
             case "7":

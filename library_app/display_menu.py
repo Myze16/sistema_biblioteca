@@ -551,7 +551,7 @@ def generate_report():
             case "1":
                 books_report()
             case "2":
-                pass
+                borrowed_report()
             case "3":
                 reserved_report()
             case "4":
@@ -562,6 +562,14 @@ def generate_report():
                 break
             case _:
                 print("Please enter a valid option!")
+
+def borrowed_report():
+    for loan in loan_dict.values():
+        try:
+            print(f"User: {loan.user.name} \nBook: {loan.book.title} \nInitial date: {loan.initial_date} \nFinal date: {loan.final_date}")
+            sleep(0.5)
+        except:
+            print("There are no loans registered!")
 
 def books_report():
     for book in book_dict.values():

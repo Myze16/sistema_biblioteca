@@ -394,7 +394,14 @@ def register(user):
             case "4":
                 try:
                     name = input("Name: ")
+                    if name in user_dict.keys():
+                        print("This name has been already exist!")
+                        raise Exception
                     cpf = input("Cpf: ")
+                    for user in user_dict:
+                        if cpf == user_dict[user].cpf:
+                            print("This CPF has been already exist!")
+                            raise Exception
                     password = input("Password: ")
                     print("----Roles----")
                     for i, role in enumerate(role_list):

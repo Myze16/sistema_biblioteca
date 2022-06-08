@@ -1,3 +1,4 @@
+import datetime
 from time import sleep
 from book import Book, Exemplary
 from display_reservation import consult_reservation
@@ -423,6 +424,9 @@ def register(user):
                     month = int(input("Month: "))
                     day = int(input("Day: "))
                     initial_date = Reservation.convert_date(year, month, day)
+                    if initial_date < datetime.datetime.now():
+                        print("Invalid Date")
+                        raise Exception
                     Reservation(user, book, initial_date, exemplary)
                     print(f"reservation {book.title} registered for {initial_date}!")
                 except:

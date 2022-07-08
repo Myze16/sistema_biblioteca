@@ -556,7 +556,7 @@ def generate_report():
             case "4":
                 user_report()
             case "5":
-                pass
+                overdue_report()
             case "6":
                 break
             case _:
@@ -599,5 +599,16 @@ def user_report():
                 print(f"{user_dict[user].name} - {user_dict[user].cpf} - {user_dict[user].role}")
     except:
         print("There are no users registered!")
-    
+
+def overdue_report():
+    try:
+        loan_overdue = False
+        for loan in loan_dict.values():
+            if loan.final_date < datetime.datetime.now():
+                loan_overdue = True
+                print(f"Loan overdue: \nUser: {loan.user.name} \nBook: {loan.book.title} \nInitial date: {loan.initial_date} \nFinal date: {loan.final_date}")
+        if not loan_overdue:
+            print("There are no loans overdued!")
+    except:
+        print("There are no loans overdued!")
 
